@@ -140,6 +140,20 @@ $(window).on('load', function() {
 
     var group = L.featureGroup(markerArray);
     var clusters = (getSetting('_markercluster') === 'on') ? true : false;
+    
+    iconCreateFunction: function (cluster) {
+     var childCount = cluster.getChildCount();
+     var c = ' marker-cluster-';
+     if (childCount < 350) {
+       c += 'small';
+     } 
+     else if (childCount < 999) {
+       c += 'medium';
+     } 
+     else {
+       c += 'large';
+     }
+    }
 
     // if layers.length === 0, add points to map instead of layer
     if (layers === undefined || layers.length === 0) {
@@ -179,19 +193,6 @@ $(window).on('load', function() {
 
      return new L.DivIcon({ html: '<div><span>' + childCount + '</span></div>', 
       className: 'marker-cluster' + c, iconSize: new L.Point(40, 40) });
-    
-    iconCreateFunction: function (cluster) {
-     var childCount = cluster.getChildCount();
-     var c = ' marker-cluster-';
-     if (childCount < 350) {
-       c += 'small';
-     } 
-     else if (childCount < 999) {
-       c += 'medium';
-     } 
-     else {
-       c += 'large';
-     }
    }
  
 
