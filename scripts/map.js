@@ -140,17 +140,6 @@ $(window).on('load', function() {
 
     var group = L.featureGroup(markerArray);
     var clusters = (getSetting('_markercluster') === 'on') ? true : false;
-     var childCount = cluster.getChildCount();
-     var c = ' marker-cluster-';
-     if (childCount < 350) {
-       c += 'small';
-     } 
-     else if (childCount < 999) {
-       c += 'medium';
-     } 
-     else {
-       c += 'large';
-     }
 
     // if layers.length === 0, add points to map instead of layer
     if (layers === undefined || layers.length === 0) {
