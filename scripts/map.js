@@ -176,8 +176,11 @@ $(window).on('load', function() {
         pointsLegend._container.className += ' ladder';
       }
     }
+
+     return new L.DivIcon({ html: '<div><span>' + childCount + '</span></div>', 
+      className: 'marker-cluster' + c, iconSize: new L.Point(40, 40) });
     
-   iconCreateFunction: function (cluster) {
+    iconCreateFunction: function (cluster) {
      var childCount = cluster.getChildCount();
      var c = ' marker-cluster-';
      if (childCount < 350) {
@@ -189,10 +192,8 @@ $(window).on('load', function() {
      else {
        c += 'large';
      }
-
-     return new L.DivIcon({ html: '<div><span>' + childCount + '</span></div>', 
-      className: 'marker-cluster' + c, iconSize: new L.Point(40, 40) });
    }
+ 
 
     $('#points-legend').prepend('<h6 class="pointer">' + getSetting('_pointsLegendTitle') + '</h6>');
     if (getSetting('_pointsLegendIcon') != '') {
