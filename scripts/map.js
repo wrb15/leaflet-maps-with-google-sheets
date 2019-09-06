@@ -21,6 +21,23 @@ $(window).on('load', function() {
       iconColor: iconColor
     });
   }
+  
+  iconCreateFunction: function (cluster) {
+   var childCount = cluster.getChildCount();
+   var c = ' marker-cluster-';
+   if (childCount < 1000) {
+     c += 'small';
+   } 
+   else if (childCount < 2000) {
+     c += 'medium';
+   } 
+   else {
+     c += 'large';
+   }
+
+   return new L.DivIcon({ html: '<div><span>' + childCount + '</span></div>', 
+    className: 'marker-cluster' + c, iconSize: new L.Point(40, 40) });
+   }
 
 
   /**
