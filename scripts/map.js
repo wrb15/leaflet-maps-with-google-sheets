@@ -180,10 +180,10 @@ $(window).on('load', function() {
    iconCreateFunction: function (cluster) {
      var childCount = cluster.getChildCount();
      var c = ' marker-cluster-';
-     if (childCount < 1000) {
+     if (childCount < 350) {
        c += 'small';
      } 
-     else if (childCount < 2000) {
+     else if (childCount < 999) {
        c += 'medium';
      } 
      else {
