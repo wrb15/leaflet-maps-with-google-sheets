@@ -21,7 +21,7 @@ $(window).on('load', function() {
       iconColor: iconColor
     });
   }
-  
+
 
   /**
    * Sets the map view so that all markers are visible, or
@@ -176,11 +176,6 @@ $(window).on('load', function() {
         pointsLegend._container.className += ' ladder';
       }
     }
-
-     return new L.DivIcon({ html: '<div><span>' + childCount + '</span></div>', 
-      className: 'marker-cluster' + c, iconSize: new L.Point(40, 40) });
-   }
- 
 
     $('#points-legend').prepend('<h6 class="pointer">' + getSetting('_pointsLegendTitle') + '</h6>');
     if (getSetting('_pointsLegendIcon') != '') {
