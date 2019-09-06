@@ -153,7 +153,6 @@ $(window).on('load', function() {
      else {
        c += 'large';
      }
-    }
 
     // if layers.length === 0, add points to map instead of layer
     if (layers === undefined || layers.length === 0) {
