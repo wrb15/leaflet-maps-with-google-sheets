@@ -158,24 +158,23 @@ $(window).on('load', function() {
           multilayerClusterSupport.checkIn(layers[i]);
           layers[i].addTo(map);
         }
-      }
-      
-      iconCreateFunction: function (cluster) {
-       var childCount = cluster.getChildCount();
-       var c = ' marker-cluster-';
-       if (childCount < 1) {
-         c += 'small';
-       } 
-       else if (childCount < 100) {
-         c += 'medium';
-       } 
-       else {
-         c += 'large';
-       }
+        iconCreateFunction: function (cluster) {
+         var childCount = cluster.getChildCount();
+         var c = ' marker-cluster-';
+         if (childCount < 1) {
+           c += 'small';
+         } 
+         else if (childCount < 100) {
+           c += 'medium';
+         } 
+         else {
+           c += 'large';
+         }
 
-       return new L.DivIcon({ html: '<div><span>' + childCount + '</span></div>', 
-        className: 'marker-cluster' + c, iconSize: new L.Point(40, 40) });
-       }
+         return new L.DivIcon({ html: '<div><span>' + childCount + '</span></div>', 
+          className: 'marker-cluster' + c, iconSize: new L.Point(40, 40) });
+         }
+      }
 
       var pos = (getSetting('_pointsLegendPos') == 'off')
         ? 'topleft'
